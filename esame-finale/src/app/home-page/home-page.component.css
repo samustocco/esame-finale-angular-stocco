@@ -1,0 +1,35 @@
+.banner-img-wrapper {
+    height: 45vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0) 45%);
+}
+
+@media (min-width: 1200px) {
+    .banner-img-wrapper {
+        height: 55vh;
+    }
+
+    .banner-img-wrapper img {
+        position: absolute;
+        top: 30%;
+        transform: translateY(-30%);
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+.banner-img-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}

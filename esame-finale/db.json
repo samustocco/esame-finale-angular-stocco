@@ -1,0 +1,129 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Tennis",
+      "description": "Impara le basi del tennis.",
+      "instructor": "Luca Rossi",
+      "duration": 10,
+      "maxCapacity": 20,
+      "img": "tennis-img.avif"
+    },
+    {
+      "id": "2",
+      "name": "Atletica",
+      "description": "Migliora le tue abilità atletiche.",
+      "instructor": "Alice Verdi",
+      "duration": 15,
+      "maxCapacity": 25,
+      "img": "atletica-img.avif"
+    },
+    {
+      "id": "3",
+      "name": "Pallacanestro",
+      "description": "Padroneggia il gioco del basket.",
+      "instructor": "Luca Rossi",
+      "duration": 20,
+      "maxCapacity": 30,
+      "img": "pallacanestro-img.avif"
+    },
+    {
+      "id": "4",
+      "name": "Nuoto",
+      "description": "Impara a nuotare come un professionista.",
+      "instructor": "Marco Bianchi",
+      "duration": 12,
+      "maxCapacity": 15,
+      "img": "nuoto-img.avif"
+    },
+    {
+      "id": "5",
+      "name": "Yoga",
+      "description": "Rilassa e rafforza il tuo corpo.",
+      "instructor": "Alice Verdi",
+      "duration": 18,
+      "maxCapacity": 20,
+      "img": "yoga-img.avif"
+    },
+    {
+      "id": "6",
+      "name": "Pilates",
+      "description": "Migliora la tua flessibilità e forza.",
+      "instructor": "Roberto Marrone",
+      "duration": 25,
+      "maxCapacity": 20,
+      "img": "pilates-img.avif"
+    },
+    {
+      "id": "7",
+      "name": "Boxe",
+      "description": "Impara l'arte della boxe.",
+      "instructor": "Marco Bianchi",
+      "duration": 22,
+      "maxCapacity": 15,
+      "img": "boxe-img.avif"
+    },
+    {
+      "id": "8",
+      "name": "Ciclismo",
+      "description": "Mettiti in forma con il ciclismo.",
+      "instructor": "Luca Rossi",
+      "duration": 20,
+      "maxCapacity": 25,
+      "img": "ciclismo-img.avif"
+    },
+    {
+      "id": "9",
+      "name": "Football",
+      "description": "Football",
+      "instructor": "Francesco Totti",
+      "duration": 2,
+      "maxCapacity": 22,
+      "img": "C:\\fakepath\\football-img.jpg"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "3",
+      "idCorso": "5",
+      "dataOra": "2025-07-06T17:00:00.000Z",
+      "nome": "Luca",
+      "cognome": "Ropo"
+    },
+    {
+      "id": "4",
+      "idCorso": "4",
+      "dataOra": "2025-08-06T06:20:00.000Z",
+      "nome": "Napo",
+      "cognome": "il capo"
+    },
+    {
+      "id": "5",
+      "idCorso": "5",
+      "dataOra": "2026-09-28T04:09:00.000Z",
+      "nome": "uudd",
+      "cognome": "dddd"
+    },
+    {
+      "id": "6",
+      "idCorso": "2",
+      "dataOra": "2025-05-12T09:00:00.000Z",
+      "nome": "alex",
+      "cognome": "boh"
+    },
+    {
+      "id": "7",
+      "idCorso": "4",
+      "dataOra": "2025-03-02T17:30:00.000Z",
+      "nome": "marco",
+      "cognome": "giacconi"
+    },
+    {
+      "id": "8",
+      "idCorso": "4",
+      "dataOra": "2025-07-04T03:30:00.000Z",
+      "nome": "andrea",
+      "cognome": "riva"
+    }
+  ]
+}

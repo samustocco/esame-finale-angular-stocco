@@ -1,0 +1,38 @@
+<div class="accordion" id="eliminaForm">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#eliminaFormCollapse" aria-expanded="false" aria-controls="eliminaFormCollapse">
+          Elimina Corso
+        </button>
+      </h2>
+      <div id="eliminaFormCollapse" class="accordion-collapse collapse" data-bs-parent="#eliminaForm">
+        <div class="accordion-body">
+            <form [formGroup]="formDeleteCorso" class="row">
+            <div class="col-12">
+                <label for="deleteCourseName" class="form-label">Nome del corso</label>
+                <select class="form-select" id="deleteCourseName" aria-label="Delete course select" formControlName="id" required>
+                    <option value="-1" disabled selected>Nome del corso...</option>
+                    <!-- <option value="">One</option>
+                    <option value="">Two</option>
+                    <option value="">Three</option> -->
+                    @for (corso of nomeCorsi; track $index) {
+                      <option value="{{corso.id}}">{{corso.name}}</option>
+                    } @empty {
+                      <option disabled selected>Nessun corso presente</option>
+                    }
+                  </select>
+                  @if(!isValid()) {
+                    <p class="ms-1 mt-1 fs-6 text-danger">Valore non valido.</p>
+                  }
+                  @if (isEliminato()) {
+                    <p class="ms-1 mt-1 fs-6 text-success">Corso eliminato con successo!</p>
+                  }
+            </div>
+            <div class="col-12 d-flex justify-content-end mt-3">
+                <button type="submit" class="btn btn-danger" (click)="onSubmit($event)">Elimina</button> 
+            </div>
+           </form>
+        </div>
+      </div>
+    </div>
+  </div>

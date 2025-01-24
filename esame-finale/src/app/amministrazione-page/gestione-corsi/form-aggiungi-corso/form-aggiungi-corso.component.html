@@ -1,0 +1,75 @@
+<div class="accordion" id="aggiungiForm">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aggiungiFormCollapse" aria-expanded="false" aria-controls="aggiungiFormCollapse">
+          Aggiungi Corso
+        </button>
+      </h2>
+      <div id="aggiungiFormCollapse" class="accordion-collapse collapse" data-bs-parent="#aggiungiForm">
+        <div class="accordion-body">
+          @if (isPrenotato()) {
+            <div class="container text-center">
+              <p class="w-100 mb-4">Form aggiunto con successo!</p>
+              <button class="btn btn-success mx-auto" (click)="resetForm()">Aggiungi un altro corso</button>
+            </div>
+          } @else if (isError()) {
+            <div class="container text-center d-flex justify-content-center align-items-center gap-4">
+              <p class="text-danger w-100 mb-4">Ops! Errore nell'aggiunta del form</p>
+              <button class="btn btn-primary mx-auto" (click)="resetForm()">Aggiungi un altro corso</button>
+            </div>
+          } @else {
+           <form [formGroup]="formAddCorso" (submit)="onSubmit($event)" class="row">
+            <div class="col-12">
+                <label for="newCourseName" class="form-label">Nome del corso</label>
+                <input type="text" id="newCourseName" name="newCourseName" class="form-control" formControlName="nome" required>
+                @if (isNameValid) {
+                  <p class="fs-6 text-danger">Valore non valido.</p>
+                }
+            </div>
+            <div class="col-12 mt-2">
+                <label for="newCourseDescription" class="form-label">Descrizione del corso</label>
+                <textarea id="newCourseDescription" name="newCourseDescription" class="form-control" formControlName="descrizione" required></textarea>
+                @if (isDescValid) {
+                  <p class="fs-6 text-danger">Valore non valido.</p>
+                }
+            </div>
+            <div class="col-12 mt-2">
+                <label for="newCourseInstructor" class="form-label">Istruttore</label>
+                <input type="text" id="newCourseInstructor" name="newCourseInstructor" class="form-control" formControlName="istruttore" required>
+                @if (isIstruttoreValid) {
+                  <p class="fs-6 text-danger">Valore non valido.</p>
+                }
+              </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label for="newCourseDuration" class="form-label">Durata</label>
+                    <input type="number" id="newCourseDuration" name="newCourseDuration" class="form-control" formControlName="durata" required>
+                    @if (isDurataValid) {
+                      <p class="fs-6 text-danger">Valore non valido.</p>
+                    }
+                </div>
+                <div class="col-6">
+                    <label for="newCourseCapacity" class="form-label">Capacità massima</label>
+                    <input type="number" id="newCourseCapacity" name="newCourseCapacity" class="form-control" formControlName="capacita" required>
+                    @if (isCapacitaValid) {
+                      <p class="fs-6 text-danger">Valore non valido.</p>
+                    }
+                </div>
+            </div>
+            <div class="col-12 mt-2">
+                <label for="formFile" class="form-label">Immagine del corso</label>
+                <input class="form-control" type="file" id="formFile" formControlName="immagine" required>
+                @if (isImgValid) {
+                  <p class="fs-6 text-danger">Valore non valido.</p>
+                }
+            </div>
+            <div class="col-12 d-flex justify-content-end mt-3">
+                <button type="reset" class="btn btn-secondary me-2">Reimposta</button>
+                <button type="submit" class="btn btn-primary">Aggiungi</button> 
+            </div>
+           </form>
+          }
+        </div>
+      </div>
+    </div>
+  </div>

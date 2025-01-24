@@ -1,0 +1,39 @@
+<div class="container-fluid position-relative p-0">
+    
+  <div class="corso-modal" [style]="{'display':isModalOpen() ? 'block' : 'none'}">
+    <div class="modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Prenota una sessione di {{corsoSelezionato()?.name}}</h1>
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()" ></button>
+          </div>
+          <div class="modal-body">
+            <app-form-prenotazione [idCorso]="corsoSelezionato()?.id" [closeModalEvent]="!isModalOpen()" (formSubmitted)="updatePrenotazioni()" ></app-form-prenotazione>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="fs-1 fw-semibold text-center py-3 text-dark-emphasis">
+    I nostri corsi
+  </h2>
+
+  @if (isFetching()) {
+    <div class="container-fluid d-flex justify-content-center my-5">
+        <div class="spinner-border text-success-emphasis" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+  }
+  
+  <div class="container my-5">
+    <div class="row g-5">
+        @for (corso of corsi; track $index) {
+            <app-corso [corso]="corso" [postiDisponibili]="prenotazioniCorsi[corso.id]" [prenotabile]="true" (selectedCorso)="onSelectedCorso($event)" class="col-12 col-md-6 col-lg-4"></app-corso>
+        }
+    </div>
+  </div>
+</div>
+

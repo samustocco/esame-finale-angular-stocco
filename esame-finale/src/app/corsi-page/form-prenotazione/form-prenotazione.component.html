@@ -1,0 +1,49 @@
+@if(isPrenotata()){
+  <div class="container text-center">
+    <p class="w-100 mb-4">Prenotata!</p>
+    <button class="btn btn-success mx-auto" routerLink="/amministrazione">Vedi prenotazioni</button>
+  </div>
+} @else if(isError()) {
+  <div class="container text-center d-flex justify-content-center align-items-center gap-4">
+    <p class="text-danger">Ops! Errore nell'invio della prenotazione</p>
+  </div>
+} @else {
+  <form [formGroup]="formPrenotazione" (submit)="onSubmit($event)" class="prenotazione-form">
+      <!-- <input type="hidden" name="corso" value="{{idCorso()}}" formControlName="corso" class="hidden visually-hidden"> -->
+      <div class="row">
+        <div class="col-6">
+          <label for="firstNameInput" class="form-label">Nome</label>
+          <input type="text" id="firstNameInput" class="form-control" name="firstname" formControlName="nome" required>
+          @if (isNameValid) {
+            <p class="fs-6 text-danger">Valore non valido.</p>
+          }
+        </div>
+        <div class="col-6">
+          <label for="lastNameInput" class="form-label">Cognome</label>
+          <input type="text" id="lastNameInput" class="form-control" name="lastname" formControlName="cognome" required>
+          @if (isSurnameValid) {
+            <p class="fs-6 text-danger">Valore non valido.</p>
+          }
+        </div>
+
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <label for="datetimeInput" class="form-label">Data e ora</label>
+          <input type="datetime-local" name="datetime" id="datetimeInput" class="form-control" formControlName="dataOra" required>
+          @if(isDateTimeValid) {
+            <p class="fs-6 text-danger">Valore non valido.</p>
+          }
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-end">
+        <div class="col-auto pe-1">
+          <button type="reset" class="btn btn-secondary">Reimposta</button>
+        </div>
+        <div class="col-auto ps-1">
+          <button type="submit" class="btn btn-success">Invia</button>
+        </div>
+      </div>
+    </form>
+
+}

@@ -1,0 +1,17 @@
+<div class="page-cont container-fluid p-0">
+    <div class="banner-img-wrapper">
+        <div class="img-overlay"></div>
+        <img src="/banner-img.jpg" alt="banner image" class="banner-img w-100 h-auto">
+    </div>
+    <h2 class="fs-1 fw-semibold text-center mt-3 text-dark-emphasis">Home</h2>
+    <div class="container-fluid">
+        <div class="container my-5">
+            <div class="row g-5">
+                <h3>Corsi Popolari</h3>
+                @for (corso of primiCorsi; track $index) {
+                    <app-corso [corso]="corso" [postiDisponibili]="prenotazioniCorsi[corso.id]" [prenotabile]="false" class="col-12 col-md-6 col-lg-4"></app-corso>
+                  }
+            </div>
+          </div>
+    </div>
+</div>

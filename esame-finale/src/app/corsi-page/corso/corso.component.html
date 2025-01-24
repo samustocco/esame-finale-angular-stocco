@@ -1,0 +1,23 @@
+<div class="card">
+    <img src={{image()}} class="card-img-top" alt="immagine corso {{corso().name}} ({{corso().img}})">
+    <div class="card-body">
+      <h5 class="card-title">{{corso().name}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary fw-semibold">Con {{corso().instructor}}</h6>
+      <p class="card-text">{{corso().description}}</p>
+      <div class="container py-2 bg-info-subtle rounded mb-3"> <!-- bg-success-subtle -->
+        Posti massimi: <span class="fs-6 fw-bold text-primary">{{corso().maxCapacity}}</span> - Disponibili: {{postiDisponibiliComputed()}}
+      </div>
+        @if(prenotabile()){
+          @if(postiDisponibiliComputed() > 0) {
+            <a (click)="onSelectCorso(corso())" class="btn btn-success d-block">Prenota una sessione</a>
+          } @else {
+            <a class="btn btn-success d-block disabled">Prenota una sessione</a>
+          }
+        } @else {
+          <a class="btn btn-outline-success d-block" routerLink="/corsi">Vai ai corsi</a>
+        }
+    </div>
+    <div class="card-footer text-body-secondary">
+      Durata: {{corso().duration}} h
+    </div>
+  </div>
